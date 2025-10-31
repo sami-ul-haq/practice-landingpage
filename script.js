@@ -43,4 +43,13 @@ $(document).ready(function () {
     mouseDrag: false,
     touchDrag: false,
   });
+
+  const backToTop = $("#backToTop");
+
+
+  // Smooth scroll to top
+  backToTop.click(function () {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
 });

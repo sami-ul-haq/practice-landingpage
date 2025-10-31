@@ -27,786 +27,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Local Styles -->
     <link rel="stylesheet" href="./style.css" />
 
-    <style>
-      :root {
-        --black-color: #000;
-        --white-color: #fff;
-        --pinkish-color: #bd163e;
-        --blue-color: #012564;
-      }
-
-      /* Footer */
-
-      .footer-map {
-        max-width: 1728px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
-
-      .footer-map .location-marker {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-40%, -50%);
-        z-index: 2;
-      }
-
-      .footer-map .iframe-container {
-        width: 100%;
-        aspect-ratio: 21/9;
-      }
-
-      .footer-map .iframe-container iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        filter: grayscale(100%);
-      }
-
-      .locations {
-        max-width: 1728px;
-        padding: 0 130px;
-        display: flex;
-        flex-wrap: wrap;
-        z-index: 2;
-        margin: -100px 0 0;
-        position: relative;
-      }
-
-      .locations .location {
-        padding: 45px;
-        width: 25%;
-        background-color: #fff;
-        transition: all ease 0.3s;
-        border-top: 3.66px solid #fff;
-      }
-
-      .locations .location:hover {
-        background-color: #ffe8ee;
-        border-top: 3.66px solid #bc143e;
-      }
-
-      .locations .location h3 {
-        font-family: "Headline-Gothic-ATF";
-        font-weight: 400;
-        font-size: clamp(1.625rem, 1.1964rem + 2.1429vw, 3.5rem);
-        line-height: 100%;
-        color: var(--black-color);
-      }
-
-      .locations .location h4 {
-        color: var(--black-color);
-        font-family: "ITC-Clearface-Std";
-        font-weight: 550;
-        font-size: clamp(1rem, 0.9429rem + 0.2857vw, 1.25rem);
-        line-height: 100%;
-        margin: 20px 0;
-      }
-
-      .locations .location p {
-        font-family: "TestSohne-Buch";
-        font-weight: 400;
-        font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.125rem);
-        line-height: 142%;
-        color: #1a1a1a;
-      }
-
-      .locations .location button {
-        border: 0.91px solid #eb4770;
-        border-radius: 9px;
-        color: var(--pinkish-color);
-        font-family: "TestSohne-Buch";
-        font-weight: 500;
-        font-size: 14.63px;
-        line-height: 100%;
-        letter-spacing: 1%;
-        padding: 12px 20px;
-        background-color: transparent;
-        text-align: center;
-        margin: 30px 0 20px;
-        cursor: pointer;
-        transition: all ease 0.3s;
-      }
-
-      .locations .location button:hover {
-        color: #fff;
-        background-color: #eb4770;
-      }
-
-      .locations .location .fc p {
-        font-family: "TestSohne-Buch";
-        font-weight: 400;
-        font-size: 16.45px;
-        line-height: 100%;
-        color: #1a1a1a;
-        margin-bottom: 5px;
-      }
-
-      .locations .location .fc a {
-        font-family: "Headline-Gothic-ATF";
-        font-weight: 400;
-        font-size: 29px;
-        line-height: 100%;
-        color: var(--pinkish-color);
-      }
-
-      .footer-section {
-        background-color: var(--blue-color);
-      }
-
-      .footer-section .container {
-        padding: 250px 130px 0;
-      }
-
-      .footer-section .footer-copy {
-        display: flex;
-        padding: 30px 0;
-        border-top: 1px solid #ffffff;
-        justify-content: space-between;
-        gap: 30px;
-        flex-wrap: wrap;
-      }
-
-      .footer-section .copyright {
-        font-family: "TestSohne-Buch";
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 27px;
-        color: var(--white-color);
-      }
-
-      .footer-section .copyright a {
-        color: var(--white-color);
-      }
-
-      .footer-section .copyright a:hover {
-        text-decoration: underline;
-      }
-
-      .footer-section .to-top {
-        font-family: "TestSohne-Buch";
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 100%;
-        color: var(--pinkish-color);
-        cursor: pointer;
-      }
-
-      .footer-section .footer-cols{
-        display: flex;
-      }
-
-      .footer-section .footer-cols .col{
-        width: 33.33%;
-      }
-
-      .footer-section .col1 img {
-        width: 257px;
-      }
-
-      .footer-section .col1 p {
-        margin: 20px 0 30px;
-        color: var(--white-color);
-        font-family: "TestSohne-Buch";
-        font-weight: 300;
-        font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.125rem);
-        line-height: 150%;
-      }
-
-      .footer-section .col1 .social-media{
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .footer-section .col1 .social-media a {
-        display: inline-block;
-      }
-
-      .footer-section .col1 .social-media i {
-        border: 1.66px solid #cecece75;
-        background-color: #f3f3f312;
-        color: var(--white-color);
-        border-radius: 13.29px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      /* Footer Ends*/
-
-      /* Reponsiveness */
-      @media only screen and (max-width: 1366px) {
-        header {
-          padding: 0 100px;
-        }
-
-        header .logo-image img {
-          width: 200px;
-        }
-
-        /* Hero Section */
-        .hero-section .container {
-          padding: 0 0 0 100px;
-        }
-
-        .hero-section .row .left-col {
-          padding-left: 60px;
-        }
-
-        /* About Section */
-        .about-section .container {
-          padding: 115px 100px 115px;
-        }
-
-        /* Practice Areas */
-        .practice-areas {
-          padding: 85px 100px;
-        }
-
-        .crime-grid .crime-item .overlay {
-          padding: 35px;
-          font-size: 30px;
-        }
-
-        /* Consultation */
-        .free-consultation {
-          padding: 0 100px;
-        }
-
-        .free-consultation .consultation-container {
-          padding: 50px 60px;
-        }
-
-        /* Why Choose */
-        .why-choose-section .container {
-          padding: 250px 100px 85px;
-        }
-
-        /* Blog */
-        .blogs-section {
-          padding: 100px;
-        }
-
-        .blogs .blog .blog-content {
-          padding: 40px;
-        }
-
-        /* Testimonial */
-        .testimonials-section {
-          padding: 0 100px;
-        }
-
-        .testimonials-section .container .row {
-          gap: 66px;
-        }
-
-        .testimonials-section .row .left-col {
-          padding: 100px 0;
-        }
-
-        .testimonials-section .row .right-col,
-        .testimonials-section .row .left-col {
-          width: calc(50% - 33px);
-        }
-
-        /* Footer */
-        .locations {
-          padding: 0 100px;
-        }
-
-        .locations .location {
-          padding: 34px;
-        }
-
-        .footer-section .container {
-          padding: 250px 100px 0;
-        }
-      }
-
-      @media only screen and (max-width: 1200px) {
-        header {
-          padding: 0 50px;
-        }
-
-        header .logo {
-          padding: 15px 20px;
-        }
-
-        header .logo-image img {
-          width: 200px;
-        }
-
-        header nav ul {
-          gap: 20px;
-        }
-
-        /* Hero Section */
-        .hero-section .container {
-          padding: 0 0 0 50px;
-        }
-
-        .hero-section .row .left-col {
-          padding-left: 30px;
-        }
-
-        /* About Section */
-        .about-section .container {
-          padding: 115px 50px 115px;
-        }
-
-        /* Practice Areas */
-        .practice-areas {
-          padding: 80px 50px;
-        }
-
-        .practice-areas .crime-grid {
-          gap: 30px;
-        }
-
-        .crime-grid .crime-item .overlay {
-          padding: 30px;
-          font-size: 25px;
-        }
-
-        /* Consultation */
-        .free-consultation {
-          padding: 0 50px;
-        }
-
-        /* Why Choose */
-        .why-choose-section .container {
-          padding: 250px 50px 50px;
-        }
-
-        /* Blog */
-        .blogs-section {
-          padding: 100px 50px;
-        }
-
-        .blogs .blog .blog-content {
-          padding: 30px;
-        }
-
-        /* Testimonial */
-        .testimonials-section {
-          padding: 0 50px;
-        }
-
-        /* Footer */
-        .locations {
-          padding: 0 50px;
-        }
-
-        .footer-section .container {
-          padding: 250px 50px 0;
-        }
-      }
-
-      @media only screen and (max-width: 1024px) {
-        header {
-          padding: 0 30px;
-        }
-
-        header .dekstop-menu nav {
-          display: none;
-        }
-
-        header .dekstop-menu .open-mob-menu {
-          display: flex;
-          justify-content: end;
-        }
-
-        /* Hero Section */
-        .hero-section .container {
-          padding: 0;
-        }
-
-        .hero-section,
-        .hero-section .container {
-          padding: 0;
-        }
-
-        .hero-section .row {
-          flex-direction: column;
-        }
-
-        .hero-section .row .left-col {
-          padding-left: 20px;
-          padding: 100px 30px 50px 50px;
-        }
-
-        .hero-section .left-col h4 {
-          max-width: 400px;
-        }
-
-        .hero-section .socials {
-          position: absolute;
-          left: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        .hero-section .row .left-col,
-        .hero-section .row .right-col {
-          width: 100%;
-        }
-
-        /* Carousel Section */
-        .clients-owl-carousel .item {
-          padding: 10px 15px;
-        }
-
-        .clients-owl-carousel .item img {
-          aspect-ratio: 3/2;
-        }
-
-        /* About Section */
-        .about-section .container {
-          padding: 80px 30px;
-        }
-
-        .about-section .container::after {
-          background-position: top right;
-          height: 400px;
-          width: 100%;
-        }
-
-        .about-section .row {
-          flex-direction: column-reverse;
-        }
-
-        .about-section .row .left {
-          width: 100%;
-        }
-
-        .about-section .row .right {
-          height: 400px;
-          width: 100%;
-        }
-
-        /* Practice Areas */
-        .practice-areas {
-          padding: 80px 30px;
-        }
-
-        .practice-areas .crime-grid {
-          gap: 20px;
-        }
-
-        /* Consultation */
-        .free-consultation {
-          padding: 0 30px;
-        }
-
-        /* Why Choose */
-        .why-choose-section .container {
-          padding: 250px 30px 80px;
-        }
-
-        /* Blog */
-        .blogs-section {
-          padding: 80px 30px;
-        }
-
-        .blogs-section .cta {
-          padding: 15px 15px 11px;
-        }
-
-        .blogs-section .blogs {
-          gap: 20px;
-        }
-
-        .blogs .blog .blog-content {
-          padding: 20px;
-        }
-
-        /* Testimonial */
-        .testimonials-section {
-          padding: 0 30px;
-        }
-
-        .testimonials-section .left-col .clients-logos {
-          gap: 10px;
-        }
-
-        .testimonials-section .left-col p {
-          margin: 30px 0 50px;
-        }
-
-        /* Footer */
-        .locations {
-          padding: 0 30px;
-        }
-
-        .locations .location {
-          width: 50%;
-          padding: 30px 25px;
-        }
-
-        .footer-section .container {
-          padding: 250px 30px 0;
-        }
-      }
-
-      @media only screen and (max-width: 767px) {
-        header {
-          padding: 0 20px;
-        }
-
-        header .dekstop-menu .header-cta {
-          display: none;
-        }
-
-        .mobile-nav .header-cta {
-          display: block;
-        }
-
-        /* Hero Section */
-        .hero-section .row .left-col {
-          padding: 80px 20px 50px 50px;
-        }
-
-        /* Clients Carousel */
-        .clients-carousel {
-          padding: 30px 0;
-        }
-
-        /* About Section */
-        .about-section .container {
-          padding: 50px 20px;
-        }
-
-        .about-section .quoted-text {
-          padding-left: 20px;
-          margin: 30px 0;
-        }
-
-        /* Practice Areas */
-        .practice-areas {
-          padding: 50px 20px;
-        }
-
-        .practice-areas .head {
-          flex-direction: column;
-          margin-bottom: 50px;
-        }
-
-        .practice-areas .head h2,
-        .practice-areas .head p {
-          width: 100%;
-        }
-
-        .practice-areas .crime-grid {
-          grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: auto;
-        }
-
-        .crime-grid .crime-item1 {
-          grid-column: 1 / 2;
-          grid-row: 1;
-        }
-
-        .crime-grid .crime-item2 {
-          grid-column: 2 / 3;
-          grid-row: 1;
-        }
-
-        .crime-grid .crime-item3 {
-          grid-column: 1 / 2;
-          grid-row: 2;
-        }
-
-        .crime-grid .crime-item4 {
-          grid-column: 2 / 3;
-          grid-row: 2;
-        }
-
-        .crime-grid .crime-item5 {
-          grid-column: 1 / span 2;
-          grid-row: 3;
-        }
-
-        .crime-grid .crime-item5 img {
-          height: 500px;
-        }
-
-        /* Consultation */
-        .free-consultation {
-          padding: 0 20px;
-        }
-
-        .free-consultation .consultation-container {
-          flex-direction: column;
-          padding: 50px 50px 35px;
-          gap: 80px;
-        }
-
-        .free-consultation .consultation-container .fc-cta,
-        .free-consultation .consultation-container .fc-content {
-          text-align: center;
-        }
-
-        /* Why Choose */
-        .why-choose-section .container {
-          padding: 250px 20px 50px;
-        }
-
-        .why-choose-section .head {
-          margin: 0 auto 60px;
-        }
-
-        .why-choose-section .reason-item h3,
-        .why-choose-section .reason-item p {
-          width: 100%;
-        }
-
-        .why-choose-section .reasons .reason-item {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        /* Blog */
-        .blogs-section {
-          padding: 50px 20px;
-        }
-
-        .blogs-section .cta {
-          padding: 10px 10px 6px;
-        }
-
-        .blogs .blog {
-          width: calc(50% - 15px);
-        }
-
-        /* Testimonial */
-        .testimonials-section {
-          padding: 0 20px 60px;
-        }
-
-        .testimonials-section .container .row {
-          flex-direction: column;
-        }
-
-        .testimonials-section .row .left-col {
-          padding: 80px 0 0;
-        }
-
-        .testimonials-section .row .right-col,
-        .testimonials-section .row .left-col {
-          width: 100%;
-        }
-
-        /* Footer */
-        .locations {
-          padding: 0 20px;
-        }
-
-        .footer-map .location-marker {
-          width: 50px;
-        }
-
-        .footer-section .container {
-          padding: 250px 20px 0;
-        }
-      }
-
-      @media only screen and (max-width: 576px) {
-        header .logo-image img {
-          width: 150px;
-        }
-
-        /* Hero Section */
-        .hero-section .container::after {
-          height: 367px;
-        }
-
-        .hero-section .left-col .hero-cta {
-          width: 100%;
-        }
-
-        .hero-section .row .left-col {
-          padding: 70px 20px 50px 20px;
-        }
-
-        .hero-section .row .right-col img {
-          max-width: 100%;
-          height: auto;
-        }
-
-        .hero-section .socials {
-          top: 70%;
-        }
-
-        .hero-section .socials .line,
-        .hero-section .socials .text {
-          display: none;
-        }
-
-        /* Practice Areas */
-        .practice-areas .crime-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .crime-grid .crime-item1,
-        .crime-grid .crime-item2,
-        .crime-grid .crime-item3,
-        .crime-grid .crime-item4,
-        .crime-grid .crime-item5 {
-          grid-column: 1 / 2;
-          grid-row: auto;
-        }
-
-        .crime-grid .crime-item img {
-          height: 350px;
-        }
-
-        /* Consultation */
-        .free-consultation .consultation-container {
-          padding: 50px 30px 30px;
-          gap: 50px;
-        }
-
-        .why-choose-section .reasons {
-          gap: 50px;
-        }
-
-        /* Blog */
-        .blogs .blog {
-          width: 100%;
-        }
-
-        /* Testimonial */
-
-        .testimonials-section {
-          padding: 0 30px 30px;
-        }
-
-        .testimonials-section .left-col .clients-logos {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .testimonials-section .row .left-col {
-          padding: 50px 0 0;
-        }
-
-        /* Footer */
-        .locations .location {
-          width: 100%;
-          padding: 30px 25px;
-        }
-
-        .footer-section .copyright {
-          font-size: 14px;
-          line-height: 20px;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Header -->
@@ -1321,6 +544,7 @@
 
     <!-- Footer -->
     <footer>
+      <!-- Map -->
       <div class="footer-map">
         <img
           src="./assets/marker.png"
@@ -1340,6 +564,7 @@
         </div>
       </div>
 
+      <!-- Locations -->
       <div class="locations">
         <div class="location">
           <h3>GREER, SC</h3>
@@ -1386,11 +611,14 @@
         </div>
       </div>
 
+      <!-- Footer -->
       <div class="footer-section">
         <div class="container">
           <div class="footer-cols">
             <div class="col col1">
-              <img src="./assets/logo.png" alt="logo" />
+              <a href="#">
+                <img src="./assets/logo.png" alt="logo" />
+              </a>
               <p>
                 At the Woods Law Firm, we represent people against the powerful.
                 Our mission is focused on fighting for your rights against
@@ -1413,9 +641,38 @@
                 </a>
               </div>
             </div>
-            <div class="col col2"></div>
-            <div class="col col3"></div>
-
+            <div class="col col2">
+              <h4>Quick Links</h4>
+              <div class="quick-links">
+                <div class="quick-links1">
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Practice Areas</a></li>
+                    <li><a href="#">Why Woods</a></li>
+                    <li><a href="#">FAQ</a></li>
+                  </ul>
+                </div>
+                <div class="quick-links2">
+                  <ul>
+                    <li><a href="#">Media</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Case Results</a></li>
+                    <li><a href="#">Blog</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col col3">
+              <div class="newsletter-form">
+                <h4>Join Newsletter</h4>
+                <p>Stay upto dated with the revolutionary legal technology.</p>
+                <form action="#">
+                  <input type="email" placeholder="Enter your email..." />
+                  <button>Subscribe</button>
+                </form>
+              </div>
+            </div>
           </div>
           <div class="footer-copy">
             <p class="copyright">
@@ -1424,7 +681,7 @@
               <a href="#">Privacy Policy</a>
             </p>
 
-            <p class="to-top" id="top">Back to top</p>
+            <p class="to-top" id="backToTop">Back to top</p>
           </div>
         </div>
       </div>
@@ -1444,6 +701,7 @@
       referrerpolicy="no-referrer"
     ></script>
 
+     <!-- Local Script -->
     <script src="./script.js"></script>
   </body>
 </html>
